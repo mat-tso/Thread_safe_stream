@@ -43,6 +43,17 @@ As the Log::operator, is just just forwarding to the SafeStream::operator<<,
 you just defined a pseudo type and number parameter varatic function!
 See the @ref LOGI macro in log.hpp for an example.
 
+Note: Of course with c++11, at it's varatic templates (challenge breaker),
+defining such log(...) is easy peasy (tail recursion feels so good ;).
+
+    template<class... T> log(T...);
+    template<class H, class... T> log(H head, T... tail) {
+        mutex.lockIfNotAlready();
+        stream << head;
+        log(tail...);
+    }
+    template<> log<>() {mutex.unlock();}
+
 # How to compile
 
 Use the cmake build system.
