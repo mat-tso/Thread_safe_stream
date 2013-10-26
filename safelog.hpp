@@ -16,7 +16,7 @@ class Log : public SafeStream
 public:
     /** Log class constructor.
       *
-      * @param[in] stream is the stream to protect from concurent access.
+      * @param[in] logStream is the stream to protect from concurent access.
       * @param[in] qualifier + ": " will prefix each log lines.
       */
     Log(std::ostream & logStream, std::string qualifier) :
@@ -42,6 +42,7 @@ public:
         SafeStream::operator<< <ostreamManipulator> (std::endl);
     }
 private:
+    /** The log qualifier, prefix each log line. */
     const std::string _qualifier;
 };
 

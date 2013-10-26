@@ -8,8 +8,9 @@
   * 
   * Insert SafeStream::begin to start a session => lock the stream
   * Insert SafeStream::end to stop a session => unlock the stream.
+  * Insert anything else to insert in the protected stream (requires a session).
   *
-  * @TODO It would be better if the open/close session was part of a trait
+  * @todo It would be better if the open/close session was part of a trait
   * class instead of virtual but this would imply partial specialization for
   * the insertion operator, which is a pain in the ass in c++O3.
   */
@@ -70,7 +71,7 @@ private:
     /** The mutex state, for debug purpose only. */
     bool lock_taken;
 
-	/** The stream mutex*/
+    /** The stream mutex*/
     std::mutex _mutex;
     /** The concurrency access protected stream. */
     std::ostream & _output;

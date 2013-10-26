@@ -2,6 +2,7 @@
 #include <thread>
 #include <string>
 
+/** Log like a crazy man to test concurrent access. */
 void crazyLogger(const std::string &id)
 {
     for(int i=0; i < 100; i++) {
