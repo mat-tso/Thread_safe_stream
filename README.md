@@ -43,7 +43,7 @@ As the Log::operator, is just just forwarding to the SafeStream::operator<<,
 you just defined a pseudo type and number parameter varatic function!
 See the @ref LOGI macro in log.hpp for an example.
 
-Note: Of course with c++11, at it's varatic templates (challenge breaker),
+Note: Of course with c++11, and it's varatic templates (challenge breaker),
 defining such log(...) is easy peasy (tail recursion feels so good ;).
 
     template<class... T> log(T...);
