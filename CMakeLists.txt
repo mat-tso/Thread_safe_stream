@@ -5,9 +5,9 @@ enable_testing()
 
 find_package( Threads )
 set(CMAKE_CXX_FLAGS "-Werror -Wall -Wextra -std=c++11 -pedantic")
- 
+
 include_directories(.)
- 
+
 add_library(safeStream safestream.hpp)
 SET_TARGET_PROPERTIES(safeStream PROPERTIES LINKER_LANGUAGE CXX)
 

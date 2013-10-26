@@ -5,7 +5,7 @@
 #include <iostream>
 
 /** Thread safe output stream.
-  * 
+  *
   * Insert SafeStream::begin to start a session => lock the stream
   * Insert SafeStream::end to stop a session => unlock the stream.
   * Insert anything else to insert in the protected stream (requires a session).
@@ -37,7 +37,7 @@ public:
       *           If any other type, append to the stream using operator <<.
       * @param[in] ti The object to be output or a manipulator.
       */
-    template<class T> 
+    template<class T>
     SafeStream & operator<< (const T & ti);
 
 private:
@@ -81,25 +81,25 @@ const SafeStream::Begin SafeStream::begin;
 const SafeStream::End SafeStream::end;
 
 /** Add a token to stream. */
-template<class T> 
+template<class T>
 SafeStream & SafeStream::operator<< (const T & ti) {
     assert(lock_taken);
     _output << ti;
     return *this;
 }
 
-/** Start a session. 
+/** Start a session.
   *
   * Will block if is a session is already started.
   */
-template<> 
+template<>
 SafeStream & SafeStream::operator<< <SafeStream::Begin> (const SafeStream::Begin &) {
     start();
     return *this;
 }
 
 /** Stop the current session. */
-template<> 
+template<>
 SafeStream & SafeStream::operator<< <SafeStream::End> (const SafeStream::End &) {
     stop();
     return *this;

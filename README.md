@@ -1,14 +1,14 @@
 # The problem
 
 The c++ Standard Template Library offers numerous great tools including streams.
-All basic objects can be inserted in an stream using the << operator 
+All basic objects can be inserted in an stream using the << operator
 or extracted with >>.
 
 Here is an example of a program that prints "hello world":
 
     cout << "Hello " << "world "
 
-The problem is that if working in an multi thread environement, 
+The problem is that if working in an multi thread environement,
 2 thread could output in parallel. The following could happend:
 `"Hello OUTPUT_FROM_AN_OTHER_THEAD world"` instead of
 `"Hello world OUTPUT_FROM_AN_OTHER_THEAD"`.

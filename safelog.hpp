@@ -3,7 +3,7 @@
 #include "safestream.hpp"
 
 /** Thread safe log class.
-  *  
+  *
   * The insertion operator is "," rather than <<.
   * A safe stream that adds "{qualifier}: " at each session start,
   * and append a new line on session stop.
@@ -23,7 +23,7 @@ public:
         SafeStream(logStream), _qualifier(qualifier) {}
 
     /** A wrapper to SafeStream::operator<<.
-      * 
+      *
       * Used in variadic macro to give the ilusion of a varadic function.
       */
     template<class T>

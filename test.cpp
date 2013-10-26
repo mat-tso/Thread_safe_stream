@@ -9,7 +9,7 @@ void crazyLogger(const std::string &id)
         LOGI(id," ", i, " A normal log line mixing types ", 2 ," nineteen ", &i);
         // Simulate a concurrent access.
         logInfo, logInfo.begin, id," ", i, " An other log line";
-        // We sleep here to be sure that the other thread is trying to log. 
+        // We sleep here to be sure that the other thread is trying to log.
         std::this_thread::sleep_for(
             std::chrono::milliseconds(1)
         );

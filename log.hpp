@@ -4,7 +4,7 @@
 #include <safelog.hpp>
 
 /** The singleton log instance to use for info log level.
-  * Use it *only* though the LOGI macro to prevent any dead lock. 
+  * Use it *only* though the LOGI macro to prevent any dead lock.
   */
 extern Log logInfo;
 
