@@ -58,8 +58,8 @@ defining such log(...) is easy peasy (tail recursion feels so good ;).
 
 Use the cmake build system.
 
-    # Create a build folder to avoid messing with the src files.
-    mkdir build && cd build
+    # Move in the build folder to avoid messing up with the src files.
+    cd build
     # Generate makefiles and build your executables.
     cmake .. && make
     # Check that all tests are passed.
