@@ -6,7 +6,7 @@
 void crazyLogger(const std::string &id)
 {
     for(int i=0; i < 100; i++) {
-        LOGI(id," ", i, " A normal log line mixing types ", 2 ," nineteen ", &i);
+        LOGI(id," ", i, " A normal log line mixing types ", 2 ," two ", &i);
         // Simulate a concurrent access.
         logInfo, logInfo.begin, id," ", i, " An other log line";
         // We sleep here to be sure that the other thread is trying to log.
@@ -14,8 +14,8 @@ void crazyLogger(const std::string &id)
             std::chrono::milliseconds(1)
         );
         logInfo, " but splited this time", logInfo.end;
-        // We sleep here to be sure that the other thread is waken up as we unlock
-        // the logInfo.
+        // We sleep here to be sure that the other thread is waken up as we
+		// unlocked the logInfo.
         std::this_thread::sleep_for(std::chrono::microseconds(1));
     }
 }
@@ -32,7 +32,6 @@ int main ()
     logInfo, 3;
     logInfo, " instuctions", logInfo.end;
 
-    std::srand(std::time(0));
     std::thread t1(crazyLogger, "Me ");
     std::thread t2(crazyLogger, "You");
     t1.join();
