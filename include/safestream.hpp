@@ -23,13 +23,17 @@ public:
 
     /** Manipulator: type used to begin a session. */
     struct Begin {};
-    /** A static instance of Begin to avoid instantiating one for each session start */
-    static constexpr Begin begin = Begin();
+    /** A static instance of Begin
+	 *  Avoids instantiating one for each session start.
+	 */
+    static const Begin begin;
 
     /** Manipulator: type used to end a session. */
     struct End {};
-    /** A static instance of End to avoid instantiating one for each session stop. */
-    static constexpr End end = End();
+    /** A static instance of End
+	 *  Avoids instantiating one for each session stop.
+	 */
+    static const End end;
 
     /** The insertion operator.
       *

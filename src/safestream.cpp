@@ -1,5 +1,8 @@
 #include "safestream.hpp"
 
+const SafeStream::Begin SafeStream::begin;
+const SafeStream::End SafeStream::end;
+
 /** Start a session.
   *
   * Will block if is a session is already started.
