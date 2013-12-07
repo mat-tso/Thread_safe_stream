@@ -1,4 +1,4 @@
-#include "log.cpp"
+#include "log.hpp"
 #include <thread>
 #include <string>
 

@@ -24,12 +24,12 @@ public:
     /** Manipulator: type used to begin a session. */
     struct Begin {};
     /** A static instance of Begin to avoid instantiating one for each session start */
-    static const Begin begin;
+    static constexpr Begin begin = Begin();
 
     /** Manipulator: type used to end a session. */
     struct End {};
     /** A static instance of End to avoid instantiating one for each session stop. */
-    static const End end;
+    static constexpr End end = End();
 
     /** The insertion operator.
       *
@@ -77,9 +77,6 @@ private:
     std::ostream & _output;
 };
 
-const SafeStream::Begin SafeStream::begin;
-const SafeStream::End SafeStream::end;
-
 /** Add a token to stream. */
 template<class T>
 SafeStream & SafeStream::operator<< (const T & ti) {
@@ -93,14 +90,8 @@ SafeStream & SafeStream::operator<< (const T & ti) {
   * Will block if is a session is already started.
   */
 template<>
-SafeStream & SafeStream::operator<< <SafeStream::Begin> (const SafeStream::Begin &) {
-    start();
-    return *this;
-}
+SafeStream & SafeStream::operator<< <SafeStream::Begin> (const SafeStream::Begin &);
 
 /** Stop the current session. */
 template<>
-SafeStream & SafeStream::operator<< <SafeStream::End> (const SafeStream::End &) {
-    stop();
-    return *this;
-}
+SafeStream & SafeStream::operator<< <SafeStream::End> (const SafeStream::End &);
